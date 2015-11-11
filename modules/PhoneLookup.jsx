@@ -116,7 +116,7 @@ class PhoneLookup extends React.Component {
           onReset       = {this.reset.bind(this)}
           onCallNumber  = {() => onCallNumber(entry ? entry.phone : value)}
           onValueChange = {this.handleChange.bind(this)} />
-        {!!keys.length && (
+        {!!keys.length && !isNumber && (
           <Results 
             onSelectionChanged = {this.selectEntry.bind(this)}
             results            = {keys.slice(0, maxResults ? maxResults : -1).map(key => results[key])} />

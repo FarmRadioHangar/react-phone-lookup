@@ -51,6 +51,7 @@ class Input extends React.Component {
       backgroundColor: '#a8f4a8'
     } : {}
     return (
+      <div>
         <div className='input-group'>
           <input 
             className = 'form-control'
@@ -65,14 +66,20 @@ class Input extends React.Component {
               className = 'btn btn-default'>
               <span className='glyphicon glyphicon-remove'></span>
             </button>
+          </div>
+        </div>
+        {(hasEntry || isValidNumber) && (
+          <div style={{textAlign: 'center', margin: '20px'}}>
             <button 
               disabled  = {!hasEntry && !isValidNumber}
               onClick   = {onCallNumber} 
               type      = 'button' 
-              className = 'btn btn-default btn-primary'>
-              <span className='glyphicon glyphicon-earphone'></span>
+              style     = {{borderRadius: '22px', minWidth: '130px'}}
+              className = 'btn btn-default btn-success btn-lg'>
+              <span style={{top: '2px'}} className='glyphicon glyphicon-earphone'></span>&nbsp;Call
             </button>
           </div>
+        )}
       </div>
     )
   }
