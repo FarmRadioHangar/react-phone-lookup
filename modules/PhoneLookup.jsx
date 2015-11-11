@@ -135,7 +135,7 @@ PhoneLookup.defaultProps = {
   entries          : [],
   resultsComponent : DefaultResults,
   inputComponent   : DefaultInput,
-  regexp           : /^(\+?255\-?|0)[0123456789]{9}$/,
+  regexp           : /^(\+?[0-9]{1,3}\-?|0)[0123456789]{9}$/,
   onCallNumber     : number => { alert(`Call number ${number}`) } 
 }
 
