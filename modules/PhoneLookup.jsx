@@ -40,8 +40,8 @@ class DefaultInput extends React.Component {
     super(props)
   }
   render() {
-    const { entry, value, onValueChange, onReset, onCallNumber, isValidNumber, currentEntry } = this.props
-    const inputStyle = !!entry ? {
+    const { hasEntry, value, onValueChange, onReset, onCallNumber, isValidNumber } = this.props
+    const inputStyle = hasEntry ? {
       backgroundColor: '#fff4a8'
     } : isValidNumber ? {
       backgroundColor: '#a8f4a8'
@@ -54,14 +54,10 @@ class DefaultInput extends React.Component {
           value    = {value}
           onChange = {onValueChange}
         />
-        {(!!entry || isValidNumber) && (
+        {(hasEntry || isValidNumber) && (
           <span>
-            <button onClick={onReset}>
-              Reset
-            </button>
-            <button onClick={() => onCallNumber(entry.phone)}>
-              Call
-            </button>
+            <button onClick={onReset}>Reset</button>
+            <button onClick={onCallNumber}>Call</button>
           </span>
         )}
       </div>
@@ -114,11 +110,11 @@ class PhoneLookup extends React.Component {
     return (
       <div>
         <Input 
+          hasEntry      = {!!entry}
           value         = {value}
-          entry         = {entry}
           isValidNumber = {isNumber}
           onReset       = {this.reset.bind(this)}
-          onCallNumber  = {onCallNumber}
+          onCallNumber  = {() => onCallNumber(entry ? entry.phone : value)}
           onValueChange = {this.handleChange.bind(this)} />
         {!!keys.length && (
           <Results 
