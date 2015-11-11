@@ -1,0 +1,25 @@
+{
+  "name": "fri-react-phone-lookup",
+  "version": "0.0.0",
+  "description": "React phone number lookup component",
+  "main": "dist/phone-lookup.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "build-js": "browserify -t [babelify --stage 1] js/examples/main.js > public/examples/bundle.js",
+    "build": "npm run build-js",
+    "babelify": "babel modules/PhoneLookup.js --out-file dist/phone-lookup.js --source-maps"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "farm radio international",
+    "phone",
+    "phone book",
+    "phonebook",
+    "number",
+    "lookup"
+  ],
+  "author": "Johannes Hilden <johannes@isomorphic.co>",
+  "license": "BSD"
+}
