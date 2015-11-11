@@ -2,6 +2,11 @@ import React       from 'react'
 import ReactDOM    from 'react-dom'
 import PhoneLookup from '../../modules/PhoneLookup'
 
+import entries     from '../../testdata/entries'
+import randomize   from '../../testdata/randomize'
+
+const data = entries.map(entry => ({ ...entry, phone : randomize() }))
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -9,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        hello
+        <PhoneLookup entries={data} />
       </div>
     )
   }
