@@ -10,16 +10,12 @@ function match(value, item) {
   return regexp.test(item.name) || regexp.test(item.phone.replace(/ /g, ''))
 }
 
-function isNumber(number) {
-  return /^(\+?255\-?|0)[0123456789]{9}$/.test(number.replace(/ /g, ''))
-}
-
 class DefaultResults extends React.Component {
   constructor(props) {
     super(props)
   }
   render() {
-    const { results } = this.props
+    const { results, onSelectionChanged } = this.props
     return (
       <ul style={{position: 'absolute', background: '#fff', border: '1px solid #ddd', width: '200px', listStyle: 'none', margin: 0, padding: 0, zIndex: 4}}>
         {results.map((result, key) => {
@@ -28,13 +24,47 @@ class DefaultResults extends React.Component {
               <span style={{float: 'right'}}>
                 {result.phone}
               </span>
-              <a href='#' onClick={() => this.props.onSelectionChanged(result)}>
+              <a href='#' onClick={() => onSelectionChanged(result)}>
                 {result.name} 
               </a>
             </li>
           )
         })}
       </ul>
+    )
+  }
+}
+
+class DefaultInput extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { entry, value, onValueChange, onReset, onCallNumber, isValidNumber, currentEntry } = this.props
+    const inputStyle = !!entry ? {
+      backgroundColor: '#fff4a8'
+    } : isValidNumber ? {
+      backgroundColor: '#a8f4a8'
+    } : {}
+    return (
+      <div>
+        <input 
+          type     = 'text'
+          style    = {inputStyle}
+          value    = {value}
+          onChange = {onValueChange}
+        />
+        {(!!entry || isValidNumber) && (
+          <span>
+            <button onClick={onReset}>
+              Reset
+            </button>
+            <button onClick={() => onCallNumber(entry.phone)}>
+              Call
+            </button>
+          </span>
+        )}
+      </div>
     )
   }
 }
@@ -54,13 +84,13 @@ class PhoneLookup extends React.Component {
     }
   }
   handleChange(event) {
-    const { entries } = this.props
-    const value = event.target.value
+    const { entries, regexp } = this.props
+    const value = event.target ? event.target.value : event
     const results = value ? _.pick(entries, item => match(value, item)) : {}
     this.setState({ 
       value, 
       results, 
-      isNumber : isNumber(value),
+      isNumber : regexp.test(value.replace(/ /g, '')),
       entry    : null 
     })
   }
@@ -77,28 +107,19 @@ class PhoneLookup extends React.Component {
   }
   render() {
     const { value, results, entry, isNumber } = this.state
-    const { maxResults, resultsComponent } = this.props
-    const inputStyle = !!entry ? {backgroundColor: '#fff4a8'} : !!isNumber ? {backgroundColor: '#a8f4a8'} : {}
+    const { maxResults, resultsComponent, inputComponent, onCallNumber } = this.props
     const keys = _.keysIn(results)
     const Results = resultsComponent
+    const Input = inputComponent
     return (
       <div>
-        <input 
-          style    = {inputStyle}
-          type     = 'text'
-          value    = {value}
-          onChange = {this.handleChange.bind(this)}
-        />
-        {(!!entry || isNumber) && (
-          <span>
-            <button onClick={this.reset.bind(this)}>
-              Reset
-            </button>
-            <button>
-              Call
-            </button>
-          </span>
-        )}
+        <Input 
+          value         = {value}
+          entry         = {entry}
+          isValidNumber = {isNumber}
+          onReset       = {this.reset.bind(this)}
+          onCallNumber  = {onCallNumber}
+          onValueChange = {this.handleChange.bind(this)} />
         {!!keys.length && (
           <Results 
             onSelectionChanged = {this.selectEntry.bind(this)}
@@ -112,7 +133,10 @@ class PhoneLookup extends React.Component {
 PhoneLookup.defaultProps = {
   maxResults       : 10,
   entries          : [],
-  resultsComponent : DefaultResults
+  resultsComponent : DefaultResults,
+  inputComponent   : DefaultInput,
+  regexp           : /^(\+?255\-?|0)[0123456789]{9}$/,
+  onCallNumber     : number => { alert(`Call number ${number}`) } 
 }
 
 export default PhoneLookup
