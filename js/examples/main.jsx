@@ -5,7 +5,7 @@ import PhoneLookup from '../../modules/PhoneLookup'
 import entries     from '../../testdata/entries'
 import randomize   from '../../testdata/randomize'
 
-// Add some random phone numbers to phone book entries
+// Add some random numbers to phone book entries
 const data = entries.map(entry => ({ ...entry, phone : randomize() }))
 
 class App extends React.Component {
