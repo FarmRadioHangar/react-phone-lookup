@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "description": "React phone number lookup component",
   "main": "dist/phone-lookup.js",
-  "dependencies": {},
+  "dependencies": {
+    "babel-preset-react": "^6.1.4",
+    "babelify": "^7.2.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
+  },
   "devDependencies": {},
   "scripts": {
     "build-js": "browserify -t [babelify --stage 1] js/examples/main.js > public/examples/bundle.js",
