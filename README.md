@@ -60,7 +60,7 @@ Technically, all props are optional, but you should at least provide your own `e
 
 #### Format of the entries array
 
-```
+```js
 [
   {
     name  : string
@@ -75,7 +75,7 @@ Technically, all props are optional, but you should at least provide your own `e
 
 #### Default implementation
 
-```
+```js
 class DefaultResults extends React.Component {
   constructor(props) {
     super(props)
