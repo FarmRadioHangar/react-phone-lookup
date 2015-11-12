@@ -56,6 +56,8 @@ ReactDOM.render(
 | regexp           | RegExp                   | The regular expression used to determine when the user input is a valid phone number. | `/^(\+?[0-9]{1,3}\-?|0)[0123456789]{9}$/` |
 | onCallNumber     | Function                 | A callback that runs when the user clicks the 'Call' button. | `number => { console.log(number) }` | 
 
+### Required props
+
 Technically, all props are optional, but you should at least provide your own `entries` array and `onCallNumber` hook for any practical use.
 
 #### Format of the entries array
