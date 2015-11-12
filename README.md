@@ -3,7 +3,7 @@
 React component for looking up phone book entries by name or number. The user can select a number to call either by 
 
 * typing part of the person's name or number, and selecting the callee from the drop-down list; or 
-* entering a valid phone number (for numbers that are not in the list).
+* entering a valid phone number (for numbers that are not in the phone book).
 
 ![animation](animation.gif)
 
