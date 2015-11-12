@@ -11,6 +11,10 @@ http://farmradiohangar.github.io/react-phone-lookup/public/examples/
 ## Usage
 
 ```js
+import React       from 'react'
+import ReactDOM    from 'react-dom'
+import PhoneLookup from 'frh-react-phone-lookup'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
