@@ -1,6 +1,9 @@
 # FRH React Phone Lookup
 
-React component for looking up phone book entries by name or number.
+React component for looking up phone book entries by name or number. The user can select a number to call either by 
+
+* typing part of the person's name or number, and selecting the callee from the drop-down list; or 
+* entering a valid phone number (for numbers that are not in the list).
 
 ## Demo
 
@@ -82,13 +85,15 @@ To change the appearance and behavior of the results drop-down or input field, y
     entries          = {[ ... ]} />
 ```
 
+See below for an explanation of the various props that are passed to these components.
+
 ### Results 
 
 #### Props
 
 | Property          | Type                     | Description   | 
 | ----------------- | ------------------------ | ------------- |
-| onSelectionChange | Function                 | Called when the user selects a result from the list. The selected entry is passed as the parameter. |
+| onSelectionChange | Function                 | Should be called when the user selects a result from the list with the selected entry as the parameter. |
 | results           | Array                    | The array of phone book entries that should appear in the list. |
 
 #### Default implementation
@@ -126,12 +131,12 @@ class DefaultResults extends React.Component {
 
 | Property          | Type                     | Description   |  
 | ----------------- | ------------------------ | ------------- | 
-| hasEntry          | Boolean                  |               |
-| isValidNumber     | Boolean                  |               |
-| value             | String                   |               |
-| onReset           | Function                 |               |
-| onCallNumber      | Function                 |               |
-| onChange          | Function                 |               |
+| hasEntry          | Boolean                  | Whether an entry is currently selected or not. |
+| isValidNumber     | Boolean                  | Whether the entered value is a valid phone number. |
+| value             | String                   | The current value. |
+| onReset           | Function                 | Callback to reset the value. |
+| onCallNumber      | Function                 | Callback to run when the user clicks the 'Call' button. |
+| onChange          | Function                 | Change handler that receives either the value, or an event object. |
 
 #### Default implementation
 
