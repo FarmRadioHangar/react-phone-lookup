@@ -99,6 +99,7 @@ class App extends React.Component {
           resultsComponent = {Results}
           inputComponent   = {Input}
           maxResults       = {8}
+          onCallNumber     = {number => { alert(`Call number ${number}`) }}
           entries          = {data} />
       </div>
     )
