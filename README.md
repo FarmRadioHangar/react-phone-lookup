@@ -19,7 +19,7 @@ http://farmradiohangar.github.io/react-phone-lookup/public/examples/
 | resultsComponent | Component                |               |              |
 | inputComponent   | Component                |               |              |
 | regexp           | RegExp                   | The regular expression used to determine when the user input is a valid phone number. | `/^(\+?[0-9]{1,3}\-?|0)[0123456789]{9}$/` |
-| onCallNumber     | Function                 | | `(number) => { console.log(number)` | 
+| onCallNumber     | Function                 | | `number => { console.log(number) }` | 
 
 ### Format of the entries array
 
