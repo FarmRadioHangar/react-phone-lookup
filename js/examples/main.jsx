@@ -40,7 +40,7 @@ class Input extends React.Component {
     const { 
       hasEntry, 
       value, 
-      onValueChange, 
+      onChange, 
       onReset, 
       onCallNumber, 
       isValidNumber
@@ -58,7 +58,7 @@ class Input extends React.Component {
             type      = 'text'
             style     = {inputStyle}
             value     = {value}
-            onChange  = {onValueChange} />
+            onChange  = {onChange} />
           <div className='input-group-btn'>
             <button 
               onClick   = {onReset} 
