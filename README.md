@@ -12,7 +12,7 @@ Try the demo [here](http://farmradiohangar.github.io/react-phone-lookup/public/e
 ## Installation
 
 ```
-npm install frh-react-phone-lookup
+npm install --save frh-react-phone-lookup
 ```
 
 ## Usage
