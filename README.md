@@ -4,7 +4,7 @@ React component for looking up phone book entries by name or number.
 
 ## Demo
 
-Try the demo [http://farmradiohangar.github.io/react-phone-lookup/public/examples/](here).
+Try the demo [here](http://farmradiohangar.github.io/react-phone-lookup/public/examples/).
 
 ## Installation
 
