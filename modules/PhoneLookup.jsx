@@ -10,6 +10,17 @@ function match(value, item) {
   return regexp.test(item.name) || regexp.test(item.phone.replace(/ /g, ''))
 }
 
+const ulStyles = {
+  position   : 'absolute',
+  background : '#fff',
+  border     : '1px solid #ddd',
+  width      : '200px',
+  listStyle  : 'none',
+  margin     : 0,
+  padding    : 0,
+  zIndex     : 4
+}
+
 class DefaultResults extends React.Component {
   constructor(props) {
     super(props)
@@ -17,7 +28,7 @@ class DefaultResults extends React.Component {
   render() {
     const { results, onSelectionChanged } = this.props
     return (
-      <ul style={{position: 'absolute', background: '#fff', border: '1px solid #ddd', width: '200px', listStyle: 'none', margin: 0, padding: 0, zIndex: 4}}>
+      <ul style={ulStyles}>
         {results.map((result, key) => {
           return (
             <li key={key}>
