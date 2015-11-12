@@ -1,4 +1,4 @@
-# react-phone-lookup
+# FRH React Phone Lookup
 
 React component for looking up phone book entries by name or number.
 
