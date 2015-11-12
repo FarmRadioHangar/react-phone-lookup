@@ -132,7 +132,7 @@ class DefaultResults extends React.Component {
 | Property          | Type                     | Description   |  
 | ----------------- | ------------------------ | ------------- | 
 | hasEntry          | Boolean                  | Whether an entry is currently selected or not. |
-| isValidNumber     | Boolean                  | Whether the entered value is a valid phone number. |
+| isValidNumber     | Boolean                  | Whether the entered value is a valid phone number or not. |
 | value             | String                   | The current value. |
 | onReset           | Function                 | Callback to reset the value. |
 | onCallNumber      | Function                 | Callback to run when the user clicks the 'Call' button. |
@@ -174,7 +174,7 @@ class DefaultInput extends React.Component {
 
 ### Example
 
-See the [source code for the demo](https://github.com/FarmRadioHangar/react-phone-lookup/blob/master/js/examples/main.jsx) for an example of customization, using the Bootstrap framework for styling.
+See the [source code for the demo](https://github.com/FarmRadioHangar/react-phone-lookup/blob/master/js/examples/main.jsx) for an example of customization, using the Bootstrap framework.
 
 ## Contribute
 
