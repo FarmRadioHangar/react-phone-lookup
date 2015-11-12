@@ -73,14 +73,23 @@ Technically, all props are optional, but you should at least provide your own `e
 
 ## Customization
 
+To change the appearance and behavior of the results drop-down or input field, you can provide your own implementation of these components as follows:
+
+```js
+  <PhoneLookup 
+    resultsComponent = {MyResultsComponent}
+    inputComponent   = {MyInputComponent}
+    entries          = {[ ... ]} />
+```
+
 ### Results 
 
 #### Props
 
 | Property          | Type                     | Description   | 
 | ----------------- | ------------------------ | ------------- |
-| onSelectionChange | Function                 |               |
-| results           | Array                    |               |
+| onSelectionChange | Function                 | Called when the user selects a result from the list. The selected entry is passed as the parameter. |
+| results           | Array                    | The array of phone book entries that should appear in the list. |
 
 #### Default implementation
 
@@ -159,6 +168,8 @@ class DefaultInput extends React.Component {
 ```
 
 ### Example
+
+See the [source code for the demo](https://github.com/FarmRadioHangar/react-phone-lookup/blob/master/js/examples/main.jsx) for an example of customization, using the Bootstrap framework for styling.
 
 ## Contribute
 
