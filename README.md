@@ -5,6 +5,8 @@ React component for looking up phone book entries by name or number. The user ca
 * typing part of the person's name or number, and selecting the callee from the drop-down list; or 
 * entering a valid phone number (for numbers that are not in the list).
 
+![animation](animation.gif)
+
 ## Demo
 
 Try the demo [here](http://farmradiohangar.github.io/react-phone-lookup/public/examples/).
