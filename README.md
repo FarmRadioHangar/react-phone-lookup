@@ -71,6 +71,75 @@ Technically, all props are optional, but you should at least provide your own `e
 
 ## Customization
 
+### Results 
+
+#### Default implementation
+
+```
+class DefaultResults extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { results, onSelectionChanged } = this.props
+    return (
+      <ul style={ulStyles}>
+        {results.map((result, key) => {
+          return (
+            <li key={key}>
+              <span style={{float: 'right'}}>
+                {result.phone}
+              </span>
+              <a href='#' onClick={() => onSelectionChanged(result)}>
+                {result.name} 
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    )
+  }
+}
+```
+
+### Input
+
+#### Default implementation
+
+```js
+class DefaultInput extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { hasEntry, value, onValueChange, onReset, onCallNumber, isValidNumber } = this.props
+    const inputStyle = hasEntry ? {
+      backgroundColor: '#fff4a8'
+    } : isValidNumber ? {
+      backgroundColor: '#a8f4a8'
+    } : {}
+    return (
+      <div>
+        <input 
+          type     = 'text'
+          style    = {inputStyle}
+          value    = {value}
+          onChange = {onValueChange}
+        />
+        {(hasEntry || isValidNumber) && (
+          <span>
+            <button onClick={onReset}>Reset</button>
+            <button onClick={onCallNumber}>Call</button>
+          </span>
+        )}
+      </div>
+    )
+  }
+}
+```
+
+### Example
+
 ## Contribute
 
 * GitHub: https://github.com/FarmRadioHangar/react-phone-lookup
