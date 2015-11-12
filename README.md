@@ -58,7 +58,7 @@ ReactDOM.render(
 
 ### Required props
 
-Technically, all props are optional, but you should at least provide your own `entries` array and `onCallNumber` hook for any practical use.
+Technically, all props are optional, but you should at least provide your own `entries` array and `onCallNumber` hook for any useful implementation.
 
 #### Format of the entries array
 
@@ -75,6 +75,13 @@ Technically, all props are optional, but you should at least provide your own `e
 
 ### Results 
 
+#### Props
+
+| Property          | Type                     | Description   | 
+| ----------------- | ------------------------ | ------------- |
+| onSelectionChange | Function                 |               |
+| results           | Array                    |               |
+
 #### Default implementation
 
 ```js
@@ -83,7 +90,7 @@ class DefaultResults extends React.Component {
     super(props)
   }
   render() {
-    const { results, onSelectionChanged } = this.props
+    const { results, onSelectionChange } = this.props
     return (
       <ul style={ulStyles}>
         {results.map((result, key) => {
@@ -92,7 +99,7 @@ class DefaultResults extends React.Component {
               <span style={{float: 'right'}}>
                 {result.phone}
               </span>
-              <a href='#' onClick={() => onSelectionChanged(result)}>
+              <a href='#' onClick={() => onSelectionChange(result)}>
                 {result.name} 
               </a>
             </li>
@@ -106,6 +113,17 @@ class DefaultResults extends React.Component {
 
 ### Input
 
+#### Props
+
+| Property          | Type                     | Description   |  
+| ----------------- | ------------------------ | ------------- | 
+| hasEntry          | Boolean                  |               |
+| isValidNumber     | Boolean                  |               |
+| value             | String                   |               |
+| onReset           | Function                 |               |
+| onCallNumber      | Function                 |               |
+| onChange          | Function                 |               |
+
 #### Default implementation
 
 ```js
@@ -114,7 +132,7 @@ class DefaultInput extends React.Component {
     super(props)
   }
   render() {
-    const { hasEntry, value, onValueChange, onReset, onCallNumber, isValidNumber } = this.props
+    const { hasEntry, value, onChange, onReset, onCallNumber, isValidNumber } = this.props
     const inputStyle = hasEntry ? {
       backgroundColor: '#fff4a8'
     } : isValidNumber ? {
@@ -126,7 +144,7 @@ class DefaultInput extends React.Component {
           type     = 'text'
           style    = {inputStyle}
           value    = {value}
-          onChange = {onValueChange}
+          onChange = {onChange}
         />
         {(hasEntry || isValidNumber) && (
           <span>
