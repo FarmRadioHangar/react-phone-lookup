@@ -33,6 +33,17 @@ function match(value, item) {
   return regexp.test(item.name) || regexp.test(item.phone.replace(/ /g, ''));
 }
 
+var ulStyles = {
+  position: 'absolute',
+  background: '#fff',
+  border: '1px solid #ddd',
+  width: '200px',
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  zIndex: 4
+};
+
 var DefaultResults = (function (_React$Component) {
   _inherits(DefaultResults, _React$Component);
 
@@ -47,11 +58,11 @@ var DefaultResults = (function (_React$Component) {
     value: function render() {
       var _props = this.props;
       var results = _props.results;
-      var onSelectionChanged = _props.onSelectionChanged;
+      var onSelectionChange = _props.onSelectionChange;
 
       return _react2['default'].createElement(
         'ul',
-        { style: { position: 'absolute', background: '#fff', border: '1px solid #ddd', width: '200px', listStyle: 'none', margin: 0, padding: 0, zIndex: 4 } },
+        { style: ulStyles },
         results.map(function (result, key) {
           return _react2['default'].createElement(
             'li',
@@ -64,7 +75,7 @@ var DefaultResults = (function (_React$Component) {
             _react2['default'].createElement(
               'a',
               { href: '#', onClick: function () {
-                  return onSelectionChanged(result);
+                  return onSelectionChange(result);
                 } },
               result.name
             )
@@ -92,7 +103,7 @@ var DefaultInput = (function (_React$Component2) {
       var _props2 = this.props;
       var hasEntry = _props2.hasEntry;
       var value = _props2.value;
-      var onValueChange = _props2.onValueChange;
+      var onChange = _props2.onChange;
       var onReset = _props2.onReset;
       var onCallNumber = _props2.onCallNumber;
       var isValidNumber = _props2.isValidNumber;
@@ -109,7 +120,7 @@ var DefaultInput = (function (_React$Component2) {
           type: 'text',
           style: inputStyle,
           value: value,
-          onChange: onValueChange
+          onChange: onChange
         }),
         (hasEntry || isValidNumber) && _react2['default'].createElement(
           'span',
@@ -213,9 +224,9 @@ var PhoneLookup = (function (_React$Component3) {
           onCallNumber: function () {
             return onCallNumber(entry ? entry.phone : value);
           },
-          onValueChange: this.handleChange.bind(this) }),
-        !!keys.length && _react2['default'].createElement(Results, {
-          onSelectionChanged: this.selectEntry.bind(this),
+          onChange: this.handleChange.bind(this) }),
+        !!keys.length && !isNumber && _react2['default'].createElement(Results, {
+          onSelectionChange: this.selectEntry.bind(this),
           results: keys.slice(0, maxResults ? maxResults : -1).map(function (key) {
             return results[key];
           }) })
@@ -233,7 +244,7 @@ PhoneLookup.defaultProps = {
   inputComponent: DefaultInput,
   regexp: /^(\+?[0-9]{1,3}\-?|0)[0123456789]{9}$/,
   onCallNumber: function onCallNumber(number) {
-    alert('Call number ' + number);
+    console.log(number);
   }
 };
 
