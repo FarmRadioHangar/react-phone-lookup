@@ -58,7 +58,7 @@ ReactDOM.render(
 
 Technically, all props are optional, but you should at least provide your own `entries` array and `onCallNumber` hook for any practical use.
 
-### Format of the entries array
+#### Format of the entries array
 
 ```
 [
