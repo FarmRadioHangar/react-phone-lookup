@@ -15,5 +15,5 @@ http://farmradiohangar.github.io/react-phone-lookup/public/examples/
 | resultsComponent | Component                |               |              |
 | inputComponent   | Component                |               |              |
 | regexp           | RegExp                   |               | `/^(\+?[0-9]{1,3}\-?|0)[0123456789]{9}$/` |
-| onCallNumber     | Function                 |               | `(number) => { alert('Call number ' + number) }` | 
+| onCallNumber     | Function                 |               | `(number) => { console.log(number)` | 
 
