@@ -10,7 +10,7 @@ class Results extends React.Component {
     super(props)
   }
   render() {
-    const { results, onSelectionChanged } = this.props
+    const { results, onSelectionChange } = this.props
     return (
       <div 
         className = 'list-group' 
@@ -21,7 +21,7 @@ class Results extends React.Component {
               key       = {key} 
               className = 'list-group-item' 
               href      = '#' 
-              onClick   = {() => onSelectionChanged(result)}>
+              onClick   = {() => onSelectionChange(result)}>
               <h4 className='list-group-item-heading'>{result.name}</h4>
               <p className='list-group-item-text'>{result.phone}</p>
             </a>

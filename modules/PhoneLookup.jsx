@@ -26,7 +26,7 @@ class DefaultResults extends React.Component {
     super(props)
   }
   render() {
-    const { results, onSelectionChanged } = this.props
+    const { results, onSelectionChange } = this.props
     return (
       <ul style={ulStyles}>
         {results.map((result, key) => {
@@ -35,7 +35,7 @@ class DefaultResults extends React.Component {
               <span style={{float: 'right'}}>
                 {result.phone}
               </span>
-              <a href='#' onClick={() => onSelectionChanged(result)}>
+              <a href='#' onClick={() => onSelectionChange(result)}>
                 {result.name} 
               </a>
             </li>
@@ -129,7 +129,7 @@ class PhoneLookup extends React.Component {
           onValueChange = {this.handleChange.bind(this)} />
         {!!keys.length && !isNumber && (
           <Results 
-            onSelectionChanged = {this.selectEntry.bind(this)}
+            onSelectionChange = {this.selectEntry.bind(this)}
             results            = {keys.slice(0, maxResults ? maxResults : -1).map(key => results[key])} />
         )}
       </div>
