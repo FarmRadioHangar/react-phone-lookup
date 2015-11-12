@@ -1,7 +1,7 @@
 {
   "name": "frh-react-phone-lookup",
-  "version": "0.0.0",
-  "description": "React phone number lookup component",
+  "version": "0.1.0",
+  "description": "React component for looking up phone book entries by name or number.",
   "main": "dist/phone-lookup.js",
   "scripts": {
     "babelify": "babel modules/PhoneLookup.jsx --out-file dist/phone-lookup.js --source-maps"
