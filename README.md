@@ -84,7 +84,7 @@ Technically, all props are optional, but you should at least provide your own `e
 
 ## Customization
 
-To change the appearance and behavior of the results drop-down or input field, you can provide your own implementation of these components as follows:
+To change the appearance and behavior of the results drop-down or the input field, you can provide your own implementation of these components as follows:
 
 ```js
   <PhoneLookup 
