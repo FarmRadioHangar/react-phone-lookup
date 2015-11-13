@@ -14,7 +14,7 @@ class Results extends React.Component {
     return (
       <div 
         className = 'list-group' 
-        style     = {{marginTop: '-1px', width: '100%', margin: 0, padding: 0, zIndex: 4}}>
+        style     = {{width: '100%', margin: 0, padding: 0, zIndex: 4}}>
         {results.map((result, key) => {
           return (
             <a 
