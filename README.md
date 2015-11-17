@@ -3,7 +3,8 @@
 # FRH React Phone Lookup
 
 ![travis-ci](https://travis-ci.org/FarmRadioHangar/react-phone-lookup.svg?branch=master)
-[![npm version](https://badge.fury.io/js/frh-react-phone-lookup.svg)](https://badge.fury.io/js/frh-react-phone-lookup)
+[![npm version](https://badge.fury.io/js/frh-react-phone-lookup.svg)](https://badge.fury.io/js/frh-rea
+[![dependency status](https://david-dm.org/FarmRadioHangar/react-phone-lookup.svg)](https://david-dm.org/FarmRadioHangar/react-phone-lookup#info=dependencies)
 
 React component for looking up phone book entries by name or number. The user can select a number to call either by 
 
