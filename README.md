@@ -1,3 +1,5 @@
+<img src="https://avatars2.githubusercontent.com/u/6412038?v=3&s=200" alt="react logo" title="react" align="right" width="64" height="64" />
+
 # FRH React Phone Lookup
 
 ![travis-ci](https://travis-ci.org/FarmRadioHangar/react-phone-lookup.svg?branch=master)
