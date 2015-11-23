@@ -81,7 +81,7 @@ Technically, all props are optional, but you should at least provide your own `e
 ```js
 [
   {
-    name  : string
+    name  : string,
     phone : string 
   }
 ]
